@@ -29,10 +29,6 @@ function App() {
               <div className='heading text-center my-5'>
                 <h1>Yup Formik Validation</h1>
               </div>
-              <Formik>
-                ...
-                ...
-              </Formik>
               <Formik
                 // initial values, when trying to work on edit, this initialValues attribute comes in handy
                 initialValues={{
