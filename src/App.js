@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Field } from 'formik';
 import * as Yup from 'yup';
 
 import './App.css';
@@ -14,8 +14,8 @@ const validationSampleSchema = Yup.object().shape({
 function App() {
   const [showResult, setShowResult] = useState(false);
   const [result, setResult] = useState({});
+
   const handleNext = (payload) => {
-    console.log({ payload });
     setResult(payload)
     setShowResult(true);
   }
@@ -29,6 +29,10 @@ function App() {
               <div className='heading text-center my-5'>
                 <h1>Yup Formik Validation</h1>
               </div>
+              <Formik>
+                ...
+                ...
+              </Formik>
               <Formik
                 // initial values, when trying to work on edit, this initialValues attribute comes in handy
                 initialValues={{
@@ -42,13 +46,13 @@ function App() {
                 validationSchema={validationSampleSchema}
                 onSubmit={(values, { setSubmitting, resetForm }) => {
 
+                  // assigning our values from the fields to payload variable.
                   const payload = values;
 
                   handleNext(payload);
 
                   // Reseting our form fields to empty
-                  resetForm({ values: "" })
-
+                  resetForm({ values: "" });
                 }}
               >
                 {({
